@@ -27,7 +27,7 @@ export class BoardHelper implements IBoardHelper {
      * @returns the new cell item
      */
     createApple(freeCells: Coordinate[]): CellItem {
-        return new CellItem(new Coordinate(0, 0), 'red');
+        return new CellItem(freeCells[Math.floor(Math.random() * 98)], 'red');
     }
 
     /**
