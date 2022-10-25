@@ -36,6 +36,18 @@ export class BoardHelper implements IBoardHelper {
      * @returns the associated direction, or null if not an accepted key code
      */
     getDirection(keyBoardEvent: KeyboardEvent): Direction | null {
+        console.log(keyBoardEvent.code);
+        switch(keyBoardEvent.code) {
+            case "keyW":
+            return Direction.UP
+            case "keyA":
+            return Direction.LEFT
+            case "keyS":
+            return Direction.DOWN
+            case "keyD":
+            return Direction.RIGHT
+        }
+
         return null;
     }
 }
