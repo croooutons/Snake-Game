@@ -38,13 +38,13 @@ export class BoardHelper implements IBoardHelper {
     getDirection(keyBoardEvent: KeyboardEvent): Direction | null {
         console.log(keyBoardEvent.code);
         switch(keyBoardEvent.code) {
-            case "keyW":
+            case "KeyW":
             return Direction.UP
-            case "keyA":
+            case "KeyA":
             return Direction.LEFT
-            case "keyS":
+            case "KeyS":
             return Direction.DOWN
-            case "keyD":
+            case "KeyD":
             return Direction.RIGHT
         }
 
@@ -82,6 +82,22 @@ export class Snake implements ISnake {
      * @param direction the diection to move the snake in
      */
     update(direction: Direction): void {
+        console.log(direction)
+        const snakeHeadCoordinate = this.snakeHead.coordinate;
+        switch (direction) {
+            case Direction.UP:
+                snakeHeadCoordinate. y ++
+                break;
+            case Direction.LEFT:
+                snakeHeadCoordinate. x --
+                break;
+            case Direction.DOWN:
+                snakeHeadCoordinate. y --
+                break; 
+            case Direction.RIGHT:
+                    snakeHeadCoordinate. x ++
+                    break;
+        }
 
     }
 
