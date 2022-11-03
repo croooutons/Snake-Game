@@ -108,6 +108,13 @@ export class Snake implements ISnake {
      * @returns the collision type or null if no collision
      */
     detectCollision(gridSize: number, appleLocation: Coordinate): Collision | null {
+        let snakeHeadCoordinate = this.snakeHead.coordinate;
+        if (snakeHeadCoordinate.x < 0 || snakeHeadCoordinate.x >= gridSize ) {
+            return Collision.WALL;
+        }
+        if (snakeHeadCoordinate.y <0 || snakeHeadCoordinate.y >= gridSize) {
+            return Collision.WALL;
+        }
         return null;
     }
 
