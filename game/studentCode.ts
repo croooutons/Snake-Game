@@ -54,7 +54,7 @@ export class BoardHelper implements IBoardHelper {
 
 export class Snake implements ISnake {
     protected snakeHead = new CellItem(new Coordinate(5, 5), 'blue');
-    protected snakeBody: CellItem[] = [];
+    protected snakeBody: CellItem[] = [new CellItem(new Coordinate(4, 5), 'blue'), new CellItem(new Coordinate(3, 5), 'blue')];
     protected touchedApple = false;
     /**
      * @returns the Snake Head Cell Item
@@ -128,6 +128,9 @@ export class Snake implements ISnake {
         if (snakeHeadCoordinate.x == appleLocation.x && snakeHeadCoordinate.y == appleLocation.y ) {
             return Collision.APPLE;
         }
+        
+        for (this.snakeBody)
+        
         return null;
     }
 
