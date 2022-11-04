@@ -55,7 +55,7 @@ export class BoardHelper implements IBoardHelper {
 export class Snake implements ISnake {
     protected snakeHead = new CellItem(new Coordinate(5, 5), 'blue');
     protected snakeBody: CellItem[] = [];
-
+    protected touchedApple = false;
     /**
      * @returns the Snake Head Cell Item
      */
@@ -84,6 +84,8 @@ export class Snake implements ISnake {
     update(direction: Direction): void {
         console.log(direction)
         const snakeHeadCoordinate = this.snakeHead.coordinate;
+        let oldX = snakeHeadCoordinate.x
+        let oldY = snakeHeadCoordinate.y
         switch (direction) {
             case Direction.UP:
                 snakeHeadCoordinate. y ++
@@ -97,8 +99,16 @@ export class Snake implements ISnake {
             case Direction.RIGHT:
                     snakeHeadCoordinate. x ++
                     break;
+        
         }
-
+        if (this.touchedApple == true) {
+        
+            this.touchedApple = false;
+        } else {
+            this.snakeBody.pop () 
+            
+    
+        } this.snakeBody.unshift(new CellItem(new Coordinate(oldX, oldY), 'blue'));
     }
 
     /**
@@ -125,7 +135,8 @@ export class Snake implements ISnake {
      * Handles the consumption of an apple, which should add a new body part
      */
     consumeApple(): void {
-        
+        this.touchedApple = true;
+
     }
 
 }
